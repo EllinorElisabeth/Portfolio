@@ -159,14 +159,23 @@ p {
 }
 
 /* --- --- --- Buttons --- --- --- */
+.action {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+
 .btn {
     position: relative;
     display: inline-flex;
     padding: .8rem 1.6rem;
-    margin: 2.2rem;
+    margin: 2rem 0 4rem 0;
     border-radius: 4rem;
     cursor: pointer;
     color: var(--txt-color);
+}
+.btn i {
+    margin: 0 0 0 .5rem;
 }
 
 .btn-p {
@@ -456,7 +465,6 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 3rem;
 }
 
 .gallery {
@@ -504,6 +512,9 @@ p {
     flex-direction: column;
 }
 
+#project__designSystem {
+    margin: 1rem 0 0 0;
+}
 
 /* --- --- --- Skills --- --- --- */
 .skills h3 {
