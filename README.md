@@ -6,18 +6,24 @@ My **Portfolio** created with **HTML, CSS and JavaScript**
 --- --- --- 
 
 ## Screenshots
-Home
-![Home](images/Home.png)
+### Home
+| Home | Home (responsive) |
+| --- | --- |
+| ![Home](images/Home.png) | ![Home](images/Home_r.png) |
 
----
+--- --- ---
 
-Projects
-![Projects](images/projects.png)
+### Projects
+| Projects | Projects (responsive) |
+| --- | --- |
+| ![Projects](images/Projects.png) | ![Projects](images/Projects_r.png) |
 
----
+--- --- ---
 
-CV & Education
-![CV](images/CV.png)
+### CV & Education
+| CV | CV (responsive) |
+| --- | --- |
+| ![CV](images/CV.png) | ![CV](images/CV_r.png) |
 
 
 **Tech**
