@@ -465,7 +465,7 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    gap: 0rem;
+    gap: 4rem;
 }
 
 .gallery {
