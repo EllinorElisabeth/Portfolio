@@ -465,6 +465,7 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    gap: 0rem;
 }
 
 .gallery {
@@ -516,6 +517,7 @@ p {
     margin: 1rem 0 0 0;
 }
 
+
 /* --- --- --- Skills --- --- --- */
 .skills h3 {
     margin-top: 1.4rem;
@@ -533,7 +535,7 @@ p {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    margin: 1rem 0 2rem;
+    margin: 0 0 1rem 0;
 }
 
 .skill__item {
