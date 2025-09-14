@@ -15,9 +15,11 @@
     --bg-color-second: ;
     --txt-color: #c8c6ca;
     --primary-color: #7db7dd;
+    --font-standard: .8rem;
+    --p-line-height: 1.6rem;
 }
 
-#de3aff html,
+html,
 body {
     width: 100%;
     height: auto;
@@ -45,12 +47,15 @@ body {
     background: var(--primary-color);
 }
 
-section { scroll-margin-top: var(--nav-h); }
+section {
+    scroll-margin-top: var(--nav-h);
+}
 
 /* --- --- --- Typography --- --- --- */
 h1,
 h2,
 h3,
+h4,
 h5,
 p {
     text-align: center;
@@ -70,15 +75,22 @@ h2 {
 
 h3 {
     font-weight: 600;
-    margin: 2%;
+}
+
+h4 {
+    font-weight: 400;
 }
 
 h5 {
     font-weight: 200;
 }
 
+h6 {
+    font-weight: 200;
+    margin-top: 1%;
+}
+
 p {
-    margin: .6rem;
     font-weight: 300;
     opacity: .8;
 }
@@ -138,25 +150,82 @@ p {
     cursor: pointer;
 }
 
-.dropdown {
+/* SIDE */
+/* Overlay bak menyen */
+.menu-overlay {
     position: fixed;
-    top: var(--nav-h);
-    left: 0;
-    right: 0;
+    inset: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    /* Safari */
     display: none;
-    flex-direction: column;
-    background: rgba(15, 15, 15, .6);
-    backdrop-filter: blur(8px) brightness(90%);
-    border-top: 1px solid rgba(255, 255, 255, .08);
-    z-index: 9;
+    z-index: 2;
 }
 
-.dropdown a {
-    display: flex;
-    justify-content: center;
-    color: var(--txt-color);
-    padding: 1rem 0;
+.menu-overlay.show {
+    display: block;
+    /* hvorfor block og ikke flex? */
 }
+
+/* Sidepanel */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+    width: 230px;
+    background: rgba(3, 3, 3, .6);
+    backdrop-filter: blur(4px);
+    padding: 0 0 4rem 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 3;
+
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+}
+
+.side-menu.show {
+    transform: translateX(0);
+}
+
+.side-menu__links {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.3rem;
+}
+
+.side-menu__links a {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.close-btn {
+    display: flex;
+    gap: .5rem;
+    color: var(--txt-color);
+    background: none;
+    border: none;
+    font-size: 1rem;
+}
+
+/* Skjul vanlig navbar på små skjermer */
+@media (max-width: 900px) {
+    .navbar__links {
+        display: none;
+    }
+
+    #icon-menu {
+        display: block;
+    }
+}
+
 
 /* --- --- --- Buttons --- --- --- */
 .action {
@@ -166,21 +235,26 @@ p {
 }
 
 .btn {
-    position: relative;
+    /*position: relative;*/
     display: inline-flex;
-    padding: .8rem 1.6rem;
-    margin: 2rem 0 4rem 0;
+    align-items: center;
+    padding:  .8rem 1.3rem;
+    margin: 1rem 0 3rem 0;
     border-radius: 4rem;
     cursor: pointer;
     color: var(--txt-color);
+    font-size: var(--font-standard);
+    font-weight: 500;
 }
+
 .btn i {
-    margin: 0 0 0 .5rem;
+    margin: -1rem -.3rem -1rem .4rem;
+    font-size: 1.3rem;
 }
 
 .btn-p {
-    background: radial-gradient(circle at 30% 30%, rgba(58, 166, 255, .2), transparent 40%),
-        radial-gradient(circle at 70% 70%, rgba(58, 166, 255, .2), transparent 40%);
+    background: radial-gradient(circle at 30% 30%, rgba(58, 166, 255, .3), transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(58, 166, 255, .3), transparent 40%);
     box-shadow:
         0 6px 12px rgba(250, 250, 250, .01),
         0 0 8px rgba(250, 250, 250, .01),
@@ -200,8 +274,8 @@ p {
     inset: 0;
     border-radius: inherit;
     background:
-    radial-gradient(circle at 30% 30%, rgb(58 166 255 / .1), transparent 50%),
-    radial-gradient(circle at 70% 70%, rgb(58 166 255 / .1), transparent 50%);
+        radial-gradient(circle at 30% 30%, rgb(58 166 255 / .2), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgb(58 166 255 / .2), transparent 50%);
     opacity: 0;
     pointer-events: none;
     transition: transform .3s ease, opacity .6s ease;
@@ -217,7 +291,7 @@ p {
         inset 0 -2px 6px -2px rgba(250, 250, 250, .6),
         inset 0 -8px 16px -4px rgba(250, 250, 250, .3),
         inset 0 -6px 24px -6px rgba(250, 250, 250, .1);
-        text-shadow: 0 0 4px #000;
+    text-shadow: 0 0 4px #000;
 }
 
 .btn-p:hover::before {
@@ -237,6 +311,7 @@ p {
     overflow: visible;
     z-index: 0;
 }
+
 .btn-s::before {
     content: "";
     position: absolute;
@@ -245,6 +320,7 @@ p {
     pointer-events: none;
     transition: transform .3s ease, opacity .6s ease;
 }
+
 .btn-s:hover {
     transform: translateY(-4px);
     box-shadow:
@@ -429,7 +505,7 @@ p {
 }
 
 .about__card {
-    padding: 1.2rem;
+    padding: 1.8rem;
     margin: 1rem 0;
     border-radius: 12px;
     background: linear-gradient(to top, rgba(250, 250, 250, .02), rgba(250, 250, 250, .0));
@@ -452,6 +528,15 @@ p {
     margin: 0 0 .8rem .6rem;
 }
 
+summary {
+    font-size: var(--font-standard);
+}
+
+.about p {
+    font-size: var(--font-standard);
+    line-height: var(--p-line-height);
+}
+
 /* --- --- --- Project --- --- --- */
 .projects__container {
     margin-top: 2rem;
@@ -459,6 +544,7 @@ p {
 
 .projects__container h2 {
     margin: 0.4rem 0 1.2rem;
+    font-size: 1.75rem;
 }
 
 .projects__container-onboardingPage {
@@ -472,6 +558,11 @@ p {
     justify-content: center;
     align-items: center;
     gap: .4rem;
+}
+    
+.gallery-images {
+    display: flex;
+    flex-direction: column;
 }
 
 .gallery-app {
@@ -501,8 +592,10 @@ p {
     z-index: 1;
 }
 
-.project p {
-    margin: 1.4rem 0 0 0;
+.projects p {
+ font-size: var(--font-standard);
+ line-height: var(--p-line-height);
+ margin-bottom: 1rem;
 }
 
 #projects__container-nwt {
@@ -514,6 +607,13 @@ p {
 
 #project__designSystem {
     margin: 1rem 0 0 0;
+}
+
+figcaption {
+    text-align: center;
+    margin: .8rem;
+    font-size: var(--font-standard);
+    font-weight: 400;
 }
 
 
@@ -546,6 +646,7 @@ p {
     max-width: 180px;
     padding: 1rem;
 }
+
 .skill__item:hover {
     animation: skip .5s ease-in-out;
 }
@@ -567,12 +668,10 @@ p {
     letter-spacing: .2rem;
 }
 
-/*
-.skill i[class^="devicon-"] {
-    font-size: 1.4rem;
-    /* litt mindre for å matche Boxicons
+.frontend, .backend, .mobile {
+    display: flex;
+    margin-bottom: 8%;
 }
-*/
 
 
 
@@ -783,19 +882,6 @@ a {
     h1 {
         font-size: 3.2rem;
     }
-
-    h2 {
-        font-size: 2.4rem;
-    }
-
-    h3 {
-        font-size: 1.6rem;
-    }
-
-    h5,
-    p {
-        font-size: 1.1rem;
-    }
 }
 
 /* Big screen */
@@ -836,9 +922,11 @@ a {
     section {
         padding: 2% 16% 12%;
     }
+
     .home__container {
         margin-top: 12%;
     }
+
     .gallery img {
         width: clamp(10rem, 20vw, 12rem);
     }
@@ -859,6 +947,7 @@ a {
     p {
         font-size: 0.9rem;
     }
+
     .cv__timeline {
         margin-left: 8%;
     }
@@ -869,14 +958,17 @@ a {
     section {
         padding: 4% 12% 14%;
     }
+
     .home__container h1 {
         font-size: 7rem;
     }
+
     .projects__container-onboardingPage,
     #gallery-dream {
         display: flex;
         flex-direction: column;
     }
+
     .gallery-dream img {
         width: clamp(20rem, 20vw, 22rem);
     }
@@ -909,6 +1001,7 @@ a {
         font-size: 1.4rem;
     }
 
+    h4,
     h5,
     p {
         font-size: 0.8rem;
@@ -945,7 +1038,7 @@ a {
 @media (max-width: 700px) {
 
     section {
-        padding: 10% 2%;
+        padding: 10% 4%;
     }
 
     .home__container h1 {
@@ -964,10 +1057,6 @@ a {
 
 /* Small mobile screen */
 @media (max-width: 440px) {
-
-    section {
-        border: 2px solid white;
-    }
 
     .home__container h1 {
         font-size: 4rem;

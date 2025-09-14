@@ -40,24 +40,33 @@
             <a class="navbar__social" href="https://github.com/EllinorElisabeth/" target="_blank"><i
                     class="devicon-github-original"></i></a>
         </div>
-        <i class="bx bx-menu" id="icon-menu" aria-label="open menu" role="button" onclick="hamburger()"></i>
+        <i class="bx bx-menu" id="icon-menu" aria-label="open menu" role="button" onclick="toggleMenu()"></i>
     </header>
 
-    <nav class="dropdown">
-        <a href="#home" class="link">Home</a>
-        <a href="#about" class="link">About</a>
-        <a href="#projects" class="link">Projects</a>
-        <a href="#skills" class="link">Skills</a>
-        <a href="#cv" class="link">CV</a>
-        <i class="bx bx-x" id="icon-x" aria-label="close menu" role="button" onclick="cancel()"></i>
-    </nav>
+    <!-- Side -->
+    <aside class="side-menu" id="sideMenu">
+        <nav class="side-menu__links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#cv">CV</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="close-btn" onclick="closeMenu()">Close
+            <span class="material-symbols-outlined">cancel</span>
+        </button>
+    </aside>
+
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
     <!-- Home section -->
     <section class="home" id="home">
-        <div class="home__container">        
-        <h1>Hello, I am</h1>
-        <p class="home__tagline">A hardworking, <span>design</span>-led <span>web and mobile developer</span> who makes complexity simple · <span>Open to work</span></p>
-        <h1>Ellinor</h1>
+        <div class="home__container">
+            <h1>Hello, I am</h1>
+            <p class="home__tagline"><span>Design</span>-led <span>web and mobile developer</span> who makes complexity
+                simple</p>
+            <h1>Ellinor</h1>
             <div class="action">
                 <a href="#projects" class="btn btn-p">Projects
                     <i class="material-symbols-outlined">workspaces</i>
@@ -131,34 +140,42 @@
         <!-- Project: Dream -->
         <div class="projects__container">
             <div class="projects__container-header">
-                <h5>-- Web Developement --</h5>
+                <h5>-- Fullstack Web Developement --</h5>
                 <h2>Dream Website</h2>
             </div>
+            <p>Created initially as an administrative tool for a presidential campaign, this fullstack web app allowed
+                the campaign team to collect and manage quotes from a candidate running for office. Later, I adapted the
+                project for more general use.</p>
             <div class="projects__container-gallery" id="project__container-dream">
                 <!-- Dream -->
-                <div class="project">
+                <div class="gallery-images">
                     <figure class="gallery gallery-dream" id="gallery-dream">
                         <img src="images/Dream_home.png" alt="Dream website hompage" class="image">
                         <img src="images/Dream_add.png" alt="Dream website add page" class="image">
                         <img src="images/Dream_search.png" alt="Dream website search page" class="image">
                     </figure>
-                    <p>React · TypeScript · .NET</p>
+                    <figcaption>React · TypeScript · Tailwind · CSS · .NET</figcaption>
                 </div>
             </div>
             <div class="project__container-btn">
-                <a href="https://github.com/EllinorElisabeth/Dream/tree/main" target="_blank" class="btn btn-p">Go to Git</a>
+                <a href="https://github.com/EllinorElisabeth/Dream/tree/main" target="_blank" class="btn btn-p">Go to
+                    Git</a>
             </div>
         </div>
 
         <!-- Project: Rick and Morty -->
         <div class="projects__container">
             <div class="projects__container-header">
-                <h5>-- Android App -- </h5>
-                <h2>Rick and Morty</h2>
+                <h5>-- Android Mobile Developement -- </h5>
+                <h2>Rick and Morty App</h2>
             </div>
+            <p>An Android app developed in Kotlin as part of a school project. The app is dedicated to Rick and Morty
+                fans, allowing users to explore characters from an external API, create custom characters, and save
+                favourites in a local database.</p>
             <div class="projects__container-gallery" id="projects__container-rm">
                 <!-- Hiking App -->
-                <div class="project">
+
+                <div class="gallery-images">
                     <figure class="gallery gallery-app">
                         <img src="images/RM_home.jpg" alt="Rick and Morty app - home screen" class="image">
                         <img src="images/RM_createdCharacters.jpg"
@@ -167,7 +184,7 @@
                             class="image">
                         <img src="images/RM_fav.jpg" alt="Rick and Morty app - favorite screen" class="image">
                     </figure>
-                    <p>Kotlin · Android</p>
+                    <figcaption>Kotlin · Android</figcaption>
                 </div>
             </div>
             <div class="project__container-btn">
@@ -179,20 +196,24 @@
         <!-- Project: Hiking App -->
         <div class="projects__container">
             <div class="projects__container-header">
-                <h5>-- DESIGN -- </h5>
+                <h5>-- UI/UX -- </h5>
                 <h2>Hiking App</h2>
             </div>
+            <p>A fictional mobile app prototype for a hiking destination in the UK, designed to promote both advanced
+                trails and family-friendly routes. The goal of the app is to encourage exploration while preserving
+                nature and local history. The project also includes a Design System for consistent and scalable design.
+            </p>
             <div class="projects__container-gallery" id="projects__container-nwt">
                 <!-- Hiking App -->
-                <div class="project">
+                <div class="gallery-images">
                     <figure class="gallery gallery-app">
                         <img src="images/NWT_home.png" alt="Hiking app's home screen" class="image">
                         <img src="images/NWT_trails.png" alt="Hiking app's 'list' of trails" class="image">
                         <img src="images/NWT_celtic-forest.png" alt="Hiking app's hiking forest screen" class="image">
                         <img src="images/NWT_legends-trail.png" alt="Hiking app's trail screen" class="image">
                     </figure>
-                    <p>Figma · Design (UX/UI)</p>
-                </div>                
+                    <figcaption>UX/UI · Figma</figcaption>
+                </div>
                 <div class="project__container-btn">
                     <a href="https://www.figma.com/proto/qCuw1zpFG7JqUmtSx0ME0g/EXAM-project?node-id=670-1894&p=f&t=6DqZKdWYzH1rGVT2-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=670%3A1894"
                         target="_blank" class="btn btn-p">Test in Figma
@@ -200,7 +221,7 @@
                 </div>
 
                 <!-- Design System -->
-                <div class="project" id="project__designSystem">
+                <div class="gallery-images">
                     <h2>Design System</h2>
                     <figure class="gallery gallery-designSystem">
                         <div class="ds-card">
@@ -216,8 +237,8 @@
                             <img src="images/DS_shadow.png" alt="Design system: shadows" class="ds-image">
                         </div>
                     </figure>
-                    <p>Figma · Design System</p>
-                </div>            
+                    <figcaption>Design System · Figma</figcaption>
+                </div>
                 <div class="project__container-btn">
                     <a href="https://www.figma.com/proto/7NCsjZnHVtUB9w5kI8P8ib/EXAM-design-system?node-id=1-2&p=f&t=fJ21gwib32pFB6Ys-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
                         target="_blank" class="btn btn-p">Take a look!
@@ -230,18 +251,20 @@
         <!-- Project: Onboarding Page -->
         <div class="projects__container">
             <div class="projects__container-header">
-                <h5>-- DESIGN --</h5>
-                <h2>Onboarding Page</h2>
+                <h5>-- UX/UI --</h5>
+                <h2>Onboarding Screens + Wireframes</h2>
             </div>
+            <p>Created an interactive onboarding flow that can be tested in Figma, along with static high and low
+                fidelity wireframes illustrating the main screens of a fictional booking app.</p>
             <div class="projects__container-onboardingPage">
                 <!-- Onboarding -->
-                <div class="project">
+                <div class="gallery-images">
                     <figure class="gallery gallery-onboarding">
                         <img src="images/Onboarding_frame-1.png" alt="Onboarding 1" class="image">
                         <img src="images/Onboarding_frame-2.png" alt="Onboarding 2" class="image">
                         <img src="images/Onboarding_frame-3.png" alt="Onboarding 3" class="image">
                     </figure>
-                    <p>Figma · Onboarding · (UX/UI)</p>
+                    <figcaption>Onboarding Screens · Figma</figcaption>
                 </div>
                 <!-- Template app -->
                 <div class="project">
@@ -249,12 +272,13 @@
                         <img src="images/Onboarding_temp-2.png" alt="Template app skjerm 1" class="image">
                         <img src="images/Onboarding_temp-1.png" alt="Template app skjerm 2" class="image">
                     </figure>
-                    <p>Figma · Template</p>
+                    <figcaption>Wireframes · Figma</figcaption>
                 </div>
             </div>
             <div class="project__container-btn">
                 <a href="https://www.figma.com/proto/XV6Bz0irIaXQxxqB3yY7Zv/W18?node-id=302-27&p=f&m=draw&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=302%3A27&t=AvlaMnMXIqyZVVyd-1"
-                    target="_blank" class="btn btn-p">Test in Figma
+                    target="_blank" class="btn btn-p">
+                    Test in Figma
                 </a>
             </div>
         </div>
@@ -265,39 +289,48 @@
         <h1>Skills</h1>
         <div class="skills__container">
             <h3>Developement</h3>
-            <div class="skills__container-sub">
-                <div class="skill__item"><i class="devicon-html5-plain" aria-hidden="true"></i><span>HTML</span></div>
-                <div class="skill__item"><i class="devicon-css3-plain" aria-hidden="true"></i><span>CSS</span></div>
-                <div class="skill__item"><i class="devicon-tailwindcss-original"
-                        aria-hidden="true"></i><span>Tailwind</span></div>
-                <div class="skill__item"><i class="devicon-javascript-plain"
-                        aria-hidden="true"></i><span>JavaScript</span>
+            <p>Throughout the IT study, I've been introduced to 13 programming languages, both through mandatory and
+                elective courses.</p>
+            <div class="skills__container-mandatory">
+                <div class="skills__container-sub">
+                    <div class="skill__item"><i class="devicon-html5-plain" aria-hidden="true"></i><span>HTML</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-css3-plain" aria-hidden="true"></i><span>CSS</span></div>
+                    <div class="skill__item"><i class="devicon-tailwindcss-original"
+                            aria-hidden="true"></i><span>Tailwind</span></div>
+                    <div class="skill__item"><i class="devicon-javascript-plain"
+                            aria-hidden="true"></i><span>JavaScript</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-typescript-plain"
+                            aria-hidden="true"></i><span>TypeScript</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-react-original"
+                            aria-hidden="true"></i><span>React.js</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-java-plain" aria-hidden="true"></i><span>Java</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-kotlin-plain" aria-hidden="true"></i><span>Kotlin</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-c-plain" aria-hidden="true"></i><span>C</span></div>
+                    <div class="skill__item"><i class="devicon-dotnetcore-plain"
+                            aria-hidden="true"></i><span>.NET</span></div>
+                    <div class="skill__item"><i class="devicon-mysql-plain" aria-hidden="true"></i><span>MySQL</span>
+                    </div>
+                    <div class="skill__item"><i class="devicon-swift-plain"></i><span>Swift</span></div>
+                    <div class="skill__item"><i class="devicon-reactnative-original"></i><span>React Native</span></div>
                 </div>
-                <div class="skill__item"><i class="devicon-typescript-plain"
-                        aria-hidden="true"></i><span>TypeScript</span>
+
+                <h3>Design</h3>
+                <div class="skills__container-sub">
+                    <div class="skill__item"><i class="devicon-figma-plain skill__icon"
+                            aria-hidden="true"></i><span>Figma</span></div>
+                    <div class="skill__item"><i class="material-symbols-outlined skill__icon"
+                            aria-hidden="true">view_quilt</i><span>Wireframing</span></div>
+                    <div class="skill__item"><i class="material-symbols-outlined skill__icon"
+                            aria-hidden="true">animation</i><span>Prototyping</span></div>
+                    <div class="skill__item"><i class="material-symbols-outlined skill__icon"
+                            aria-hidden="true">widgets</i><span>Design System</span></div>
                 </div>
-                <div class="skill__item"><i class="devicon-react-original" aria-hidden="true"></i><span>React.js</span>
-                </div>
-                <div class="skill__item"><i class="devicon-java-plain" aria-hidden="true"></i><span>Java</span></div>
-                <div class="skill__item"><i class="devicon-kotlin-plain" aria-hidden="true"></i><span>Kotlin</span>
-                </div>
-                <div class="skill__item"><i class="devicon-c-plain" aria-hidden="true"></i><span>C</span></div>
-                <div class="skill__item"><i class="devicon-dotnetcore-plain" aria-hidden="true"></i><span>.NET</span>
-                </div>
-                <div class="skill__item"><i class="devicon-mysql-plain" aria-hidden="true"></i><span>MySQL</span></div>
-                <div class="skill__item"><i class="devicon-swift-plain"></i><span>Swift</span></div>
-                <div class="skill__item"><i class="devicon-reactnative-original"></i><span>React Native</span></div>
-            </div>
-            <h3>Design</h3>
-            <div class="skills__container-sub">
-                <div class="skill__item"><i class="devicon-figma-plain skill__icon"
-                        aria-hidden="true"></i><span>Figma</span></div>
-                <div class="skill__item"><i class="material-symbols-outlined skill__icon"
-                        aria-hidden="true">view_quilt</i><span>Wireframing</span></div>
-                <div class="skill__item"><i class="material-symbols-outlined skill__icon"
-                        aria-hidden="true">animation</i><span>Prototyping</span></div>
-                <div class="skill__item"><i class="material-symbols-outlined skill__icon"
-                        aria-hidden="true">widgets</i><span>Design System</span></div>
             </div>
         </div>
 
@@ -389,4 +422,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
