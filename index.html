@@ -14,6 +14,8 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Background effect -->
     <div class="circle-bg" aria-hidden="true">
         <div class="circle"></div>
@@ -35,12 +37,12 @@
             <a href="#contact" class="link">Contact</a>
         </nav>
         <div class="navbar__links social">
-            <a class="navbar__social" href="https://www.linkedin.com/in/ellinor-helgesen/" target="_blank"><i
-                    class="devicon-linkedin-plain"></i></a>
-            <a class="navbar__social" href="https://github.com/EllinorElisabeth/" target="_blank"><i
-                    class="devicon-github-original"></i></a>
+            <a class="navbar__social" href="https://www.linkedin.com/in/ellinor-helgesen/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i
+                    class="devicon-linkedin-plain" aria-hidden="true"></i></a>
+            <a class="navbar__social" href="https://github.com/EllinorElisabeth/" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i
+                    class="devicon-github-original" aria-hidden="true"></i></a>
         </div>
-        <i class="bx bx-menu" id="icon-menu" aria-label="open menu" role="button" onclick="toggleMenu()"></i>
+        <button type="button" class="menu-toggle" id="icon-menu" aria-label="Open menu" aria-expanded="false" aria-controls="sideMenu" onclick="toggleMenu()"><i class="bx bx-menu" aria-hidden="true"></i></button>
     </header>
 
     <!-- Side -->
@@ -53,26 +55,25 @@
             <a href="#cv">CV</a>
             <a href="#contact">Contact</a>
         </nav>
-        <button class="close-btn" onclick="closeMenu()">Close
-            <span class="material-symbols-outlined">cancel</span>
+        <button class="close-btn" onclick="closeMenu()" aria-label="Close menu">Close
+            <span class="material-symbols-outlined" aria-hidden="true">cancel</span>
         </button>
     </aside>
 
-    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()" aria-hidden="true"></div>
 
+    <main id="main-content">
     <!-- Home section -->
     <section class="home" id="home">
         <div class="home__container">
-            <h1>Hello, I am</h1>
-            <p class="home__tagline"><span>Design</span>-led <span>web and mobile developer</span> who makes complexity
-                simple</p>
-            <h1>Ellinor</h1>
+            <h1 class="home__intro">Hello, I am Ellinor</h1>
+            <p class="home__tagline">Design-led developer who makes complexity simple, and keep learning.</p>
             <div class="action">
                 <a href="#projects" class="btn btn-p">Projects
-                    <i class="material-symbols-outlined">workspaces</i>
+                    <i class="material-symbols-outlined" aria-hidden="true">workspaces</i>
                 </a>
                 <a class="btn btn-s" href="images/CV_Ellinor.pdf" target="_blank">CV
-                    <i class="material-symbols-outlined" id="download">download</i>
+                    <i class="material-symbols-outlined" id="download" aria-hidden="true">download</i>
                 </a>
             </div>
         </div>
@@ -80,9 +81,9 @@
 
     <!-- About section -->
     <section class="about" id="about">
-        <h1>Who's Ellinor ?</h1>
+        <h2>Who's Ellinor ?</h2>
         <div class="about__container">
-            <p>
+            <p class="p">
                 I'm a hands-on and structured developer with leadership experience, used to prioritising and
                 delivering under pressure.<br /><br />
                 I work comfortably across disciplines, focus on frontend, and keep learning and exploring other IT
@@ -90,14 +91,14 @@
                 With a UI design background, I care about interfaces that make sense and code that keeps them fast.
             </p>
             <details class="about__more">
-                <summary>Read more</summary>
+                <summary>Read more about my background</summary>
 
                 <div class="about__card">
                     <div class="about__card-header">
                         <span class="material-symbols-outlined" aria-hidden="true">handyman</span>
                         <h4>Hands-on & Collaborative</h4>
                     </div>
-                    <p>
+                    <p class="p">
                         I'm comfortable turning ideas into working solutions while keeping structure and detail in
                         place.
                         From leading teams in cleaning services, I've learned to delegate, prioritise, and stay calm
@@ -113,7 +114,7 @@
                         <span class="material-symbols-outlined" aria-hidden="true">brush</span>
                         <h4>Creative + Logical</h4>
                     </div>
-                    <p>
+                    <p class="p">
                         With UI design experience and frontend development, I bridge aesthetics and function.
                         I enjoy crafting interfaces that are intuitive and accessible, while keeping the codebase
                         maintainable and performant.
@@ -125,7 +126,7 @@
                         <span class="material-symbols-outlined" aria-hidden="true">rocket_launch</span>
                         <h4>Future-Oriented</h4>
                     </div>
-                    <p>
+                    <p class="p">
                         Frontend is my main focus, but I actively explore other IT aspects in my free time.
                         I enjoy learning new things and adapt to what the project needs.
                     </p>
@@ -136,16 +137,18 @@
 
     <!-- Projects section -->
     <section class="projects" id="projects">
-        <h1>Projects</h1>
+        <h2>Projects</h2>
         <!-- Project: Dream -->
         <div class="projects__container">
             <div class="projects__container-header">
-                <h5>-- Fullstack Web Developement --</h5>
+                <h5>-- Web Developement --</h5>
                 <h2>Dream Website</h2>
             </div>
-            <p>Created initially as an administrative tool for a presidential campaign, this fullstack web app allowed
+            <p class="p">
+                Created initially as an administrative tool for a presidential campaign, this fullstack web app allowed
                 the campaign team to collect and manage quotes from a candidate running for office. Later, I adapted the
-                project for more general use.</p>
+                project for more general use.
+            </p>
             <div class="projects__container-gallery" id="project__container-dream">
                 <!-- Dream -->
                 <div class="gallery-images">
@@ -169,9 +172,11 @@
                 <h5>-- Android Mobile Developement -- </h5>
                 <h2>Rick and Morty App</h2>
             </div>
-            <p>An Android app developed in Kotlin as part of a school project. The app is dedicated to Rick and Morty
+            <p class="p">
+                An Android app developed in Kotlin as part of a school project. The app is dedicated to Rick and Morty
                 fans, allowing users to explore characters from an external API, create custom characters, and save
-                favourites in a local database.</p>
+                favourites in a local database.
+            </p>
             <div class="projects__container-gallery" id="projects__container-rm">
                 <!-- Hiking App -->
 
@@ -199,7 +204,8 @@
                 <h5>-- UI/UX -- </h5>
                 <h2>Hiking App</h2>
             </div>
-            <p>A fictional mobile app prototype for a hiking destination in the UK, designed to promote both advanced
+            <p class="p">
+                A fictional mobile app prototype for a hiking destination in the UK, designed to promote both advanced
                 trails and family-friendly routes. The goal of the app is to encourage exploration while preserving
                 nature and local history. The project also includes a Design System for consistent and scalable design.
             </p>
@@ -254,8 +260,10 @@
                 <h5>-- UX/UI --</h5>
                 <h2>Onboarding Screens + Wireframes</h2>
             </div>
-            <p>Created an interactive onboarding flow that can be tested in Figma, along with static high and low
-                fidelity wireframes illustrating the main screens of a fictional booking app.</p>
+            <p class="p">
+                Created an interactive onboarding flow that can be tested in Figma, along with static high and low
+                fidelity wireframes illustrating the main screens of a fictional booking app.
+            </p>
             <div class="projects__container-onboardingPage">
                 <!-- Onboarding -->
                 <div class="gallery-images">
@@ -286,11 +294,13 @@
 
     <!-- Skills section -->
     <section class="skills" id="skills">
-        <h1>Skills</h1>
+        <h2>Skills</h2>
         <div class="skills__container">
             <h3>Developement</h3>
-            <p>Throughout the IT study, I've been introduced to 13 programming languages, both through mandatory and
-                elective courses.</p>
+            <p class="p">
+                Throughout the IT study, I've been introduced to 13 languages, both through mandatory and
+                elective courses.
+            </p>
             <div class="skills__container-mandatory">
                 <div class="skills__container-sub">
                     <div class="skill__item"><i class="devicon-html5-plain" aria-hidden="true"></i><span>HTML</span>
@@ -316,8 +326,8 @@
                             aria-hidden="true"></i><span>.NET</span></div>
                     <div class="skill__item"><i class="devicon-mysql-plain" aria-hidden="true"></i><span>MySQL</span>
                     </div>
-                    <div class="skill__item"><i class="devicon-swift-plain"></i><span>Swift</span></div>
-                    <div class="skill__item"><i class="devicon-reactnative-original"></i><span>React Native</span></div>
+                    <div class="skill__item"><i class="devicon-swift-plain" aria-hidden="true"></i><span>Swift</span></div>
+                    <div class="skill__item"><i class="devicon-reactnative-original" aria-hidden="true"></i><span>React Native</span></div>
                 </div>
 
                 <h3>Design</h3>
@@ -338,13 +348,13 @@
 
     <!-- CV & Education -->
     <section class="cv" id="cv">
-        <h1>CV & Education</h1>
+        <h2>CV & Education</h2>
         <div class="cv__container">
             <div class="cv__timeline">
                 <div class="cv__timeline-item">
                     <div class="cv__timeline-info">2023-2026 | Bachelor</div>
                     <div class="cv__timeline-content">
-                        <h3>Frontend & Mobile Development</h3>
+                        <h4>Frontend & Mobile Development</h4>
                         <span class="full-title">Kristiania University of Applied Sciences</span>
                         <span class="short-title">Kristiania</span>
                     </div>
@@ -353,7 +363,7 @@
                 <div class="cv__timeline-item">
                     <div class="cv__timeline-info">2022-2023 | Vocational</div>
                     <div class="cv__timeline-content">
-                        <h3>User Interface Design</h3>
+                        <h4>User Interface Design</h4>
                         <span class="full-title">Noroff - School of Technology and Digital Media</span>
                         <span class="short-title">Noroff</span>
                     </div>
@@ -362,7 +372,7 @@
                 <div class="cv__timeline-item">
                     <div class="cv__timeline-info">2021-2022 | Apprentice</div>
                     <div class="cv__timeline-content">
-                        <h3>Signal Technician</h3>
+                        <h4>Signal Technician</h4>
                         <span class="full-title">Bane NOR Jernbaneskolen</span>
                         <span class="short-title">Jernbaneskolen</span>
                     </div>
@@ -371,7 +381,7 @@
 
             <div class="cv__container-btn">
                 <a href="images/CV_Ellinor.pdf" target="_blank" class="btn btn-p">CV
-                    <i class="material-symbols-outlined" id="download">download</i>
+                    <i class="material-symbols-outlined" id="download" aria-hidden="true">download</i>
                 </a>
             </div>
         </div>
@@ -379,35 +389,37 @@
 
     <!-- Contact -->
     <section class="section contact" id="contact">
-        <h1>Contact Me</h1>
+        <h2>Contact Me</h2>
         <div class="contact__container">
 
             <div class="info">
                 <div class="test">
                     <div class="info__detail">
-                        <i class="material-symbols-outlined">mail</i><span>
+                        <i class="material-symbols-outlined" aria-hidden="true">mail</i><span>
                             <a href="mailto:el.he@outlook.com">el.he@outlook.com</a></span>
                     </div>
                     <div class="info__detail">
-                        <i class="material-symbols-outlined">call</i><span>929 11 859</span>
+                        <i class="material-symbols-outlined" aria-hidden="true">call</i><span><a href="tel:+4792911859">929 11 859</a></span>
                     </div>
                     <div class="info__detail">
-                        <i class="material-symbols-outlined">location_on</i><span>Oslo</span>
+                        <i class="material-symbols-outlined" aria-hidden="true">location_on</i><span>Oslo</span>
                     </div>
                 </div>
             </div>
 
             <div class="action">
-                <a href="#projects " class="btn btn-p">Projects
-                    <i class="material-symbols-outlined">workspaces</i>
+                <a href="#projects" class="btn btn-p">Projects
+                    <i class="material-symbols-outlined" aria-hidden="true">workspaces</i>
                 </a>
                 <a href="images/CV_Ellinor.pdf" target="_blank" class="btn btn-s">CV
-                    <i class="material-symbols-outlined" id="download">download</i>
+                    <i class="material-symbols-outlined" id="download" aria-hidden="true">download</i>
                 </a>
             </div>
         </div>
 
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>

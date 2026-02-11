@@ -3,31 +3,57 @@ const allNavLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
 
 const sideMenu = document.getElementById('sideMenu');
 const menuOverlay = document.getElementById('menuOverlay');
+const menuToggle = document.getElementById('icon-menu');
+const mainContent = document.getElementById('main-content');
+const sideMenuLinks = document.querySelectorAll('.side-menu__links a');
+const firstSideMenuLink = sideMenuLinks[0];
+
+function setMenuOpen(open) {
+  const isOpen = !!open;
+  sideMenu.classList.toggle('show', isOpen);
+  menuOverlay.classList.toggle('show', isOpen);
+  if (mainContent) mainContent.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+  if (menuToggle) {
+    menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  }
+  if (isOpen && firstSideMenuLink) {
+    firstSideMenuLink.focus();
+  } else if (menuToggle) {
+    menuToggle.focus();
+  }
+}
 
 function toggleMenu() {
-  if (sideMenu.classList.contains("show")) {
-    sideMenu.classList.remove("show");
-  } else {
-    sideMenu.classList.add('show');
-  }
-
-  if (menuOverlay.classList.contains("show")) {
-    menuOverlay.classList.remove("show");
-  } else {
-    menuOverlay.classList.add('show');
-  }
+  const isOpen = sideMenu.classList.contains('show');
+  setMenuOpen(!isOpen);
 }
 
 function closeMenu() {
-  sideMenu.classList.remove('show');
-  menuOverlay.classList.remove('show');
+  setMenuOpen(false);
 }
 
-// Lukk meny når man klikker på en lenke
-document.querySelectorAll('.side-menu__links a').forEach(link => {
+if (menuToggle) {
+  menuToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleMenu();
+    }
+  });
+}
+
+// Link pressed - close menu
+sideMenuLinks.forEach(link => {
   link.addEventListener('click', () => {
     closeMenu();
   });
+});
+
+// Close menu on esc-btn
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && sideMenu.classList.contains('show')) {
+    closeMenu();
+  }
 });
 
 
@@ -35,12 +61,25 @@ const linksById = {};
 allNavLinks.forEach(link => {
   const hash = link.getAttribute('href');
   if (!hash || hash === '#') return;
-  const id = hash.slice(1);
+  const id = hash.replace(/^#/, '').trim();
+  if (!id) return;
   (linksById[id] ||= []).push(link);
 });
 
-const clearActive = () => allNavLinks.forEach(l => l.classList.remove('active'));
-const setActive = (id) => (linksById[id] || []).forEach(l => l.classList.add('active'));
+const clearActive = () => {
+  allNavLinks.forEach(l => {
+    l.classList.remove('active');
+    l.removeAttribute('aria-current');
+  });
+};
+
+const setActive = (id) => {
+  const links = linksById[id] || [];
+  links.forEach(l => {
+    l.classList.add('active');
+    l.setAttribute('aria-current', 'page');
+  });
+};
 
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -59,14 +98,17 @@ sections.forEach(sec => io.observe(sec));
 
 allNavLinks.forEach(link => {
   link.addEventListener('click', () => {
-    const id = link.getAttribute('href').slice(1);
-    clearActive();
-    setActive(id);
+    const href = link.getAttribute('href') || '';
+    const id = href.replace(/^#/, '').trim();
+    if (id) {
+      clearActive();
+      setActive(id);
+    }
   });
 });
 
 window.addEventListener('load', () => {
-  const id = location.hash?.slice(1);
+  const id = (location.hash || '#home').replace(/^#/, '').trim() || 'home';
   clearActive();
-  setActive(id || 'home');
+  setActive(id);
 });
